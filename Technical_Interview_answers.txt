@@ -96,7 +96,7 @@ ORDER BY
 
 
 
-Build a simple Springboot "Hello World" project with kubernetes and ingress. 
+Build a simple Springboot "Hello World" project with kubernetes and ingress.
 
 - Open the project to internet and please share the url.
 
@@ -107,5 +107,5 @@ Build a simple Springboot "Hello World" project with kubernetes and ingress.
 - Use Jenkins for all CI/CD part 
 
 
- https://github.com/yasminoz/technical_assessment 
+// hello-world project shared on git
 
