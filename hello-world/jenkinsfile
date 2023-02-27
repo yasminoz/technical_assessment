@@ -1,0 +1,40 @@
+/* jenkinsFile (Declarative Pipeline)
+   Requires Pipeline */
+
+pipeline {
+environment {
+registryCredential = "docker"
+}
+agent any
+stages {
+stage(‘Build’) {
+    steps{
+    script {
+        sh 'mvn clean install'
+    }
+    }
+}
+stage(‘Load’) {
+    steps{
+    script {
+        app = docker.build("cloudName/simple-spring")
+    }
+    }
+}
+    stage(‘Deploy’) {
+    steps{
+    script {
+        docker.withRegistry( "https://registry.hub.docker.com", registryCredential ) {
+        app.push("latest")
+        }
+    }
+    }
+}
+stage('Deploy to ACS'){
+    steps{
+            // cloud deploy requirements
+    }
+}
+}
+}
+}
